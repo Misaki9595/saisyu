@@ -56,20 +56,6 @@
 
       // A function to draw ellipses over the detected keypoints
       function drawKeypoints() {
-        // for (let i = 0; i < poses.length; i += 1) {
-        //     const keypoints = predictions[i].scaledMesh;
-
-        //     let x1 = poses[i].pose.keypoints[1].x;
-        //     let y1 = poses[i].pose.keypoints[1].y;
-        //     let x2 = poses[i].pose.keypoints[2].x;
-        //     let y2 = poses[i].pose.keypoints[2].y;
-
-        //     // const[x1, y1] = keypoints[1];
-        //     // const[x2, y2] = keypoints[2];
-        //     let distance = Math.sqrt(
-        //        (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)
-        //   );
-        // }
         // Loop through all the poses detected
         for (let i = 0; i < poses.length; i++) {
           // For each pose detected, loop through all the keypoints
@@ -79,10 +65,22 @@
             // Only draw an ellipse is the pose probability is bigger than 0.2
             if (keypoint.score > 0.2) {
               if (keypoint.position.x < width / 2) {
-                image(kao[1], keypoint.position.x -300, keypoint.position.y -220, 0, 0);
+                image(
+                  kao[1],
+                  keypoint.position.x - 300,
+                  keypoint.position.y - 220,
+                  0,
+                  0
+                );
                 speak(text);
               } else {
-                image(kao[0], keypoint.position.x -100, keypoint.position.y -100, 0, 0);
+                image(
+                  kao[0],
+                  keypoint.position.x - 100,
+                  keypoint.position.y - 100,
+                  0,
+                  0
+                );
                 speak(text2);
               }
               // fill(10, 10, 10);
